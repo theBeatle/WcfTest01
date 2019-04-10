@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServices", "WcfServices\WcfServices.csproj", "{A6A06BF9-4487-4A9F-BF82-893728B34BBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServices01", "WcfServices\WcfServices01.csproj", "{A6A06BF9-4487-4A9F-BF82-893728B34BBF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfClientTest01", "WcfClientTest01\WcfClientTest01.csproj", "{D8C1916D-EDC6-4C9F-9C84-1BFC9DFC9988}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A6A06BF9-4487-4A9F-BF82-893728B34BBF} = {A6A06BF9-4487-4A9F-BF82-893728B34BBF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{F4589A35-D48F-4EBC-BB4A-BEA8DCC0D27E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms01", "WinForms\WinForms01.csproj", "{F4589A35-D48F-4EBC-BB4A-BEA8DCC0D27E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A6A06BF9-4487-4A9F-BF82-893728B34BBF} = {A6A06BF9-4487-4A9F-BF82-893728B34BBF}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfKnownTypes", "WcfKnownTypes\WcfKnownTypes.csproj", "{D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientSoftServ", "ClientSoftServ\ClientSoftServ.csproj", "{A75F2B78-AD63-43FF-8C13-F65DF9E108D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{F4589A35-D48F-4EBC-BB4A-BEA8DCC0D27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4589A35-D48F-4EBC-BB4A-BEA8DCC0D27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4589A35-D48F-4EBC-BB4A-BEA8DCC0D27E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A75F2B78-AD63-43FF-8C13-F65DF9E108D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A75F2B78-AD63-43FF-8C13-F65DF9E108D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A75F2B78-AD63-43FF-8C13-F65DF9E108D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A75F2B78-AD63-43FF-8C13-F65DF9E108D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
