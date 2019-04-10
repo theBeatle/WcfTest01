@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -32,6 +33,11 @@ namespace WcfKnownTypes
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+        public void ExceptionGenerator()
+        {
+            throw new NullReferenceException();
+        }
+
         public decimal GetHighestSalary()
         {
             return SoftServDB.WorkersDB().Max(w => w.Salary);
@@ -39,7 +45,8 @@ namespace WcfKnownTypes
 
         public string GetRichestWorkerName()
         {
-            return SoftServDB.WorkersDB().OrderBy(w => w.Salary).FirstOrDefault().Name;
+            return SoftServDB.WorkersDB()
+                .OrderByDescending(w => w.Salary).FirstOrDefault().Name;
             //return SoftServDB.WorkersDB()
             //    .FirstOrDefault(w => w.Salary == SoftServDB.WorkersDB().Max(s => s.Salary)).Name;
             //return SoftServDB.WorkersDB().Select( w => w.Name.Where( s => s. ) )
@@ -49,18 +56,26 @@ namespace WcfKnownTypes
         {
             return SoftServDB.WorkersDB()
                 .OfType<Swarschik>()
-                .OrderBy(s => s.Salary)
+                .OrderByDescending(s => s.Salary)
                 .Take(3)
                 .ToArray();
         }
 
         public Worker[] GetTop5WorkersBySalary()
         {
+            SoftServDB.WorkersDB()
+           .OrderByDescending(s => s.Salary)
+           .Take(5)
+           .ToList().
+           ForEach( w => Debug.WriteLine($" {w.GetType().Name}") );
+
+
+
+
             return SoftServDB.WorkersDB()
-               .OrderBy(s => s.Salary)
+               .OrderByDescending(s => s.Salary)
                .Take(5)
                .ToArray();
-  
         }
 
         public int GetWorkersQuantity()

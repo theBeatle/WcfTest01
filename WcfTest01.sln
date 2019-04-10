@@ -18,6 +18,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfKnownTypes", "WcfKnownTypes\WcfKnownTypes.csproj", "{D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientSoftServ", "ClientSoftServ\ClientSoftServ.csproj", "{A75F2B78-AD63-43FF-8C13-F65DF9E108D6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0} = {D3DEEDFD-1339-4FB9-87AB-A4213CC81AD0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -30,6 +30,9 @@ namespace WcfKnownTypes
         [OperationContract]
         Worker[] GetTop5WorkersBySalary();
 
+        [OperationContract]
+        void ExceptionGenerator();
+
 
     }
 }
