@@ -31,6 +31,9 @@
   <wsdl:message name="IService1_GetWorkersQuantityByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetWorkersQuantityByNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetWorkersQuantityByName_NameAbsenceFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WcfKnownTypes" name="detail" element="q1:NameAbsenceFault" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetTop3SwarschiksBySalary_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTop3SwarschiksBySalary" />
   </wsdl:message>
@@ -49,6 +52,9 @@
   <wsdl:message name="IService1_ExceptionGenerator_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExceptionGeneratorResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ExceptionGenerator_MyWcfSuperPuperExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WcfKnownTypes" name="detail" element="q2:MyWcfSuperPuperException" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetWorkersQuantity">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetWorkersQuantity" message="tns:IService1_GetWorkersQuantity_InputMessage" />
@@ -65,6 +71,7 @@
     <wsdl:operation name="GetWorkersQuantityByName">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetWorkersQuantityByName" message="tns:IService1_GetWorkersQuantityByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetWorkersQuantityByNameResponse" message="tns:IService1_GetWorkersQuantityByName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/GetWorkersQuantityByNameNameAbsenceFaultFault" name="NameAbsenceFaultFault" message="tns:IService1_GetWorkersQuantityByName_NameAbsenceFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetTop3SwarschiksBySalary">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTop3SwarschiksBySalary" message="tns:IService1_GetTop3SwarschiksBySalary_InputMessage" />
@@ -77,6 +84,7 @@
     <wsdl:operation name="ExceptionGenerator">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ExceptionGenerator" message="tns:IService1_ExceptionGenerator_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ExceptionGeneratorResponse" message="tns:IService1_ExceptionGenerator_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IService1/ExceptionGeneratorMyWcfSuperPuperExceptionFault" name="MyWcfSuperPuperExceptionFault" message="tns:IService1_ExceptionGenerator_MyWcfSuperPuperExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -116,6 +124,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="NameAbsenceFaultFault">
+        <soap:fault use="literal" name="NameAbsenceFaultFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="GetTop3SwarschiksBySalary">
       <soap:operation soapAction="http://tempuri.org/IService1/GetTop3SwarschiksBySalary" style="document" />
@@ -143,6 +154,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="MyWcfSuperPuperExceptionFault">
+        <soap:fault use="literal" name="MyWcfSuperPuperExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Service1">

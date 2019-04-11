@@ -15,6 +15,83 @@ namespace ClientSoftServ.SoftServeNS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NameAbsenceFault", Namespace="http://schemas.datacontract.org/2004/07/WcfKnownTypes")]
+    [System.SerializableAttribute()]
+    public partial class NameAbsenceFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((this.ResultField.Equals(value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Swarschik", Namespace="http://schemas.datacontract.org/2004/07/WcfKnownTypes")]
     [System.SerializableAttribute()]
     public partial class Swarschik : ClientSoftServ.SoftServeNS.Worker {
@@ -210,6 +287,83 @@ namespace ClientSoftServ.SoftServeNS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MyWcfSuperPuperException", Namespace="http://schemas.datacontract.org/2004/07/WcfKnownTypes")]
+    [System.SerializableAttribute()]
+    public partial class MyWcfSuperPuperException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ResultField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((this.ResultField.Equals(value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SoftServeNS.IService1")]
     public interface IService1 {
@@ -233,6 +387,7 @@ namespace ClientSoftServ.SoftServeNS {
         System.Threading.Tasks.Task<decimal> GetHighestSalaryAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetWorkersQuantityByName", ReplyAction="http://tempuri.org/IService1/GetWorkersQuantityByNameResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ClientSoftServ.SoftServeNS.NameAbsenceFault), Action="http://tempuri.org/IService1/GetWorkersQuantityByNameNameAbsenceFaultFault", Name="NameAbsenceFault", Namespace="http://schemas.datacontract.org/2004/07/WcfKnownTypes")]
         int GetWorkersQuantityByName(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetWorkersQuantityByName", ReplyAction="http://tempuri.org/IService1/GetWorkersQuantityByNameResponse")]
@@ -251,6 +406,7 @@ namespace ClientSoftServ.SoftServeNS {
         System.Threading.Tasks.Task<ClientSoftServ.SoftServeNS.Worker[]> GetTop5WorkersBySalaryAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExceptionGenerator", ReplyAction="http://tempuri.org/IService1/ExceptionGeneratorResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(ClientSoftServ.SoftServeNS.MyWcfSuperPuperException), Action="http://tempuri.org/IService1/ExceptionGeneratorMyWcfSuperPuperExceptionFault", Name="MyWcfSuperPuperException", Namespace="http://schemas.datacontract.org/2004/07/WcfKnownTypes")]
         void ExceptionGenerator();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ExceptionGenerator", ReplyAction="http://tempuri.org/IService1/ExceptionGeneratorResponse")]

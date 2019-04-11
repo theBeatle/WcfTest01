@@ -35,7 +35,20 @@ namespace WcfKnownTypes
     {
         public void ExceptionGenerator()
         {
-            throw new NullReferenceException();
+            try
+            {
+                throw new MySuper("exception from nothing");
+            }
+            catch (MySuper err)
+            {
+                MyWcfSuperPuperException ex = new MyWcfSuperPuperException();
+                ex.Result = false;
+                ex.Message = err.Message;
+                ex.Description = "Htos' naplyguv, ajajaj ((((";
+
+                throw new FaultException<MyWcfSuperPuperException>(ex, new FaultReason(" bebebe"));
+            }
+            
         }
 
         public decimal GetHighestSalary()
@@ -85,7 +98,48 @@ namespace WcfKnownTypes
 
         public int GetWorkersQuantityByName(string name)
         {
-            return SoftServDB.WorkersDB().Where(w => w.Name == name).Count();
+            var workersCount = SoftServDB.WorkersDB().Where(w => w.Name == name).Count();
+            try
+            {
+                if (workersCount == 0)
+                {
+                    throw new NameAbsenceException(name);
+                }
+
+            }
+            catch (NameAbsenceException err)
+            {
+                var fault = new NameAbsenceFault();
+                fault.Result = false;
+                fault.Message = err.Message;
+                fault.Description = "Such name doesn't exits in the current context!!!";
+                var reason = new FaultReason(err.Message);
+                throw new FaultException<NameAbsenceFault>(fault, reason);
+            }
+           
+            return workersCount;
         }
     }
+    public class MySuper : Exception
+    {
+        public MySuper(string error)
+        {
+            Source = error;
+           
+        }
+    }
+
+    [DataContract]
+    public class MyWcfSuperPuperException
+    {
+        [DataMember]
+        public bool Result { get; set; }
+
+        [DataMember]
+        public string Message { get; set; }
+
+        [DataMember]
+        public string Description { get; set; }
+    }
+
 }

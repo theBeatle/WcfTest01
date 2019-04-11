@@ -22,6 +22,7 @@ namespace WcfKnownTypes
         decimal GetHighestSalary();
 
         [OperationContract]
+        [FaultContract(typeof(NameAbsenceFault))]
         int GetWorkersQuantityByName(string name);
 
         [OperationContract]
@@ -31,6 +32,7 @@ namespace WcfKnownTypes
         Worker[] GetTop5WorkersBySalary();
 
         [OperationContract]
+        [FaultContract(typeof(MyWcfSuperPuperException))]
         void ExceptionGenerator();
 
 

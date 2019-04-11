@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using ClientSoftServ.SoftServeNS;
@@ -32,8 +33,48 @@ namespace ClientSoftServ
             Console.WriteLine(client.GetWorkersQuantityByName("Ivan"));
             Console.WriteLine(new String('-', 20));
 
+            try
+            {
+                client.ExceptionGenerator();
+            }
+            catch (FaultException<MyWcfSuperPuperException> err)
+            {
+                Console.WriteLine($"M - {err.Message}\nR - {err.Reason}\nS - {err.Source}");
+                Console.WriteLine($"M - {err.Detail.Message}\nR - {err.Detail.Result}\nS - {err.Detail.Description}");
+            }
+            catch (FaultException fe)
+            {
+                Console.WriteLine($"Halepa - {fe}");
+            }
+            catch (NullReferenceException err)
+            {
+                Console.WriteLine("Htos ne vudiluv pamjati");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Useless block");
+                
+            }
 
-            client.ExceptionGenerator();
+
+            
+
+            Console.WriteLine(new String('-', 20));
+            Console.WriteLine(new String('-', 20));
+
+            try
+            {
+                Console.WriteLine(client.GetWorkersQuantityByName("Stepanuch"));
+               
+            }
+            catch (FaultException<NameAbsenceFault> err)
+            {
+                Console.WriteLine($"M - {err.Message}\nR - {err.Reason}\nS - {err.Source}");
+                Console.WriteLine($"M - {err.Detail.Message}\nR - {err.Detail.Result}\nS - {err.Detail.Description}");
+            }
+            
+
+
 
             client.Close();
         }
