@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ClientSoftServ.SoftServeNS;
+using System;
 using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
-using ClientSoftServ.SoftServeNS;
-
-
 
 namespace ClientSoftServ
 {
